@@ -88,3 +88,5 @@ as a store, i should be able do this:
 + select options for all store orders and orders associated to a user (filtering)
 + if sales
 + see pizza type, count, revenue by week or by month
+
+> the goal is to try to complete as many reqs as you can in the time alloted. :)
