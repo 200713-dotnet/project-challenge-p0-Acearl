@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JwWtLfspm1F4VOFcm4fucMEV7LxGXLkhw0xhkeaCwJzhyqnI/Dso0MuFMFoi4ac0yyum9eGX3Ex9hjdyHMUyjQ==",
+  "dgSpecHash": "J/eNgpT/1TBdYCLTk4HqlXbX87tB8V5FEbxcXyXuaZiFxyk6b4a+ILzQxXrk3eOg44JswKQLnm06dTIF/iOXzg==",
   "success": true,
-  "projectFilePath": "/home/earl/Revature/project-challenges/PizzaBox.Client/PizzaBox.Client.csproj",
+  "projectFilePath": "/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/PizzaBox.Client.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

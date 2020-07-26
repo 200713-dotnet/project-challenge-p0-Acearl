@@ -1,0 +1,13 @@
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/obj/Debug/netcoreapp3.1/PizzaBox.Client.csprojAssemblyReference.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/obj/Debug/netcoreapp3.1/PizzaBox.Client.AssemblyInfoInputs.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/obj/Debug/netcoreapp3.1/PizzaBox.Client.AssemblyInfo.cs
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/obj/Debug/netcoreapp3.1/PizzaBox.Client.csproj.CoreCompileInputs.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/bin/Debug/netcoreapp3.1/PizzaBox.Client
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/bin/Debug/netcoreapp3.1/PizzaBox.Client.deps.json
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/bin/Debug/netcoreapp3.1/PizzaBox.Client.runtimeconfig.json
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/bin/Debug/netcoreapp3.1/PizzaBox.Client.runtimeconfig.dev.json
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/bin/Debug/netcoreapp3.1/PizzaBox.Client.dll
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/bin/Debug/netcoreapp3.1/PizzaBox.Client.pdb
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/obj/Debug/netcoreapp3.1/PizzaBox.Client.dll
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/obj/Debug/netcoreapp3.1/PizzaBox.Client.pdb
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/obj/Debug/netcoreapp3.1/PizzaBox.Client.genruntimeconfig.cache

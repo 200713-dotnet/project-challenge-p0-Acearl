@@ -1,0 +1,9 @@
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/bin/Debug/netstandard2.0/PizzaBox.Domain.deps.json
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/bin/Debug/netstandard2.0/PizzaBox.Domain.dll
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/bin/Debug/netstandard2.0/PizzaBox.Domain.pdb
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.csprojAssemblyReference.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.AssemblyInfoInputs.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.AssemblyInfo.cs
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.csproj.CoreCompileInputs.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.dll
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Domain/obj/Debug/netstandard2.0/PizzaBox.Domain.pdb

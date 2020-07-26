@@ -1,0 +1,9 @@
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Storing.deps.json
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Storing.dll
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Storing.pdb
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.csprojAssemblyReference.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.AssemblyInfoInputs.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.AssemblyInfo.cs
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.csproj.CoreCompileInputs.cache
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.dll
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.pdb

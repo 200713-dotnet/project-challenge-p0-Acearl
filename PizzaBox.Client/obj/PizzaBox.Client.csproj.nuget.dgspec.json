@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/earl/Revature/project-challenges/PizzaBox.Client/PizzaBox.Client.csproj": {}
+    "/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/PizzaBox.Client.csproj": {}
   },
   "projects": {
-    "/home/earl/Revature/project-challenges/PizzaBox.Client/PizzaBox.Client.csproj": {
+    "/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/PizzaBox.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/earl/Revature/project-challenges/PizzaBox.Client/PizzaBox.Client.csproj",
+        "projectUniqueName": "/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/PizzaBox.Client.csproj",
         "projectName": "PizzaBox.Client",
-        "projectPath": "/home/earl/Revature/project-challenges/PizzaBox.Client/PizzaBox.Client.csproj",
+        "projectPath": "/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/PizzaBox.Client.csproj",
         "packagesPath": "/home/earl/.nuget/packages/",
-        "outputPath": "/home/earl/Revature/project-challenges/PizzaBox.Client/obj/",
+        "outputPath": "/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Client/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/earl/.nuget/NuGet/NuGet.Config"
