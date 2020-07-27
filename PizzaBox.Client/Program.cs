@@ -35,9 +35,9 @@ namespace PizzaBox.Client
             {
                 displayMainMenu();
                 input = acceptInput();
-                if(input.Equals("Q"))
+                if(input.Equals("Q") == false)
                 {
-
+                    
                 }
             }
         }
