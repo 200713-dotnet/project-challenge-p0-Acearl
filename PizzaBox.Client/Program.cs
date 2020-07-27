@@ -1,4 +1,5 @@
 ﻿using System;
+using PizzaBox.Domain.Models;
 
 namespace PizzaBox.Client
 {
@@ -6,8 +7,20 @@ namespace PizzaBox.Client
     {
         static void Main(string[] args)
         {
+            Boolean exit = false;
+            Boolean changeUser = false;
+            User user;
             welcomeBanner();
-            primaryLoop();
+            while(exit == false)
+            {
+                userLoop();
+                while(changeUser == false)
+                {
+                    primaryLoop();
+                }
+                
+            }
+            
         }
         static void welcomeBanner()
         {
@@ -27,39 +40,110 @@ namespace PizzaBox.Client
             Console.WriteLine("Q : To exit the program");
             Console.WriteLine("");
         }
-        static void primaryLoop()
+        static void displayPizzas()
+        {
+            Console.Write("What type of pizza would you like to add to your order?");
+            Console.Write("A: Cheese Pizza");
+            Console.Write("B: Pepperoni Pizza");
+            Console.Write("C: Niche Pizza (Hawaiian Pizza)");
+            Console.Write("D: Load Pizza from XML file");
+            Console.Write("Q: Exit adding pizza");
+        }
+        static User userLoop()
+        {
+            return user;
+        }
+        static void primaryLoop(User user)
         {
             Boolean exit = false;
-            string input;
-            while(exit != true)
+            char input;
+            
+            while(exit == false)
             {
                 displayMainMenu();
                 input = acceptInput();
-                if(input.Equals("Q") == false)
+                if(input.Equals('Q') == false)
                 {
-                    
+                    switch(input)
+                    {
+                        case 'A':
+                            pizzaLoop();
+                            break;
+                        case 'B':
+                            completeOrder();
+                            break;
+                        default:
+                            Console.WriteLine("default case");
+                            break;
+                    }
+
                 }
+                else
+                {
+                    exit = true;
+                }
+                
             }
         }
-        static string acceptInput()
+        static char acceptInput()
         {
-            string input = "";
+            char input = ' ';
+            string inputTemp;
+            char[] inputTempChar;
             Console.Write("Enter option here ->");
             try
             {
-                input = Char.ConvertFromUtf32(Console.Read()).ToUpper();
-                Console.Write(input);
-                //char.Parse(input);
+                inputTemp = (Console.ReadLine().ToUpper());
+                inputTempChar = inputTemp.ToCharArray();
+                input = inputTempChar[0];
+                bool isNumeric = int.TryParse(input.ToString(), out _);
+                while(input.Equals(' ') || (isNumeric == true))
+                {
+                    Console.WriteLine("Please input non numerics or special characters");
+                    Console.Write("Enter option here ->");
+                    inputTemp = (Console.ReadLine().ToUpper());
+                    inputTempChar = inputTemp.ToCharArray();
+                    input = inputTempChar[0];
+                }
+                Console.WriteLine(input);
+                
             }
             catch
             {
-
-            }
-            finally
-            {
-                
+                Console.Write("Bad input");
             }
             return input;
+        }
+        static Order pizzaLoop(Order order)
+        {
+            char input = ' ';
+            displayPizzas();
+            input = acceptInput();
+            if(input.Equals('Q') == false)
+            {
+                switch(input)
+                {
+                    case 'A':
+                        break;
+                    case 'B':
+                        break;
+                    case 'C':
+                        break;
+                    case 'D':
+                        break;
+                    case 'Q':
+                        break;
+                    default:
+                        Console.WriteLine("default case");
+                        break;
+
+                }
+            }
+
+        }
+        static void completeOrder()
+        {
+
         }
     }
 }

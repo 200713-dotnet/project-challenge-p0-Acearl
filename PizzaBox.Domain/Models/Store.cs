@@ -11,5 +11,12 @@ namespace PizzaStore.Domain.Models
     {
       return new Order();
     }
+    public void displayOrders()
+    {
+      foreach(var o in Orders)
+      {
+        
+      }
+    }
   }
 }
