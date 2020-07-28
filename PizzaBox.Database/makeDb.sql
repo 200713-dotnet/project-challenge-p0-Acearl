@@ -12,15 +12,24 @@ go
 
 create schema Pizza;
 go
+drop table Pizza.Toppings;
+go
+drop table Pizza.Pizza;
+go
+drop table Pizza.[Order];
+go
+drop table Pizza.Store;
+go
+drop table Pizza.[User];
+go
 
 create table Pizza.[User]
 (
   UserId int not null identity(1,1),
-  name NVARCHAR(200) not null,
+  [name] NVARCHAR(200) not null,
   constraint PK_UserId primary key (UserId)
 );
-drop table Pizza.Store;
-go
+
 create table Pizza.Store
 (
   StoreId int not null identity(1,1),
@@ -33,6 +42,7 @@ create table Pizza.[Order]
   UserId int not null,
   StoreId int not null,
   Done BINARY not null,
+  cost money not null,
   dateOrdered DATETIME2 not null,
   constraint PK_OrderId primary key (OrderId),
   constraint FK_UserId foreign key (UserId) REFERENCES Pizza.[User](UserId),

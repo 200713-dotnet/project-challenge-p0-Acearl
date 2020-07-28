@@ -36,6 +36,10 @@ namespace PizzaBox.Storing
             {
                 entity.ToTable("Order", "Pizza");
 
+                entity.Property(e => e.Cost)
+                    .HasColumnName("cost")
+                    .HasColumnType("money");
+
                 entity.Property(e => e.DateOrdered).HasColumnName("dateOrdered");
 
                 entity.Property(e => e.Done)
