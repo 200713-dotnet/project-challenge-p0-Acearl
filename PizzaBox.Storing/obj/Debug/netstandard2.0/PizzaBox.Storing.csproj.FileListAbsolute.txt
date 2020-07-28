@@ -7,3 +7,6 @@
 /home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.csproj.CoreCompileInputs.cache
 /home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.dll
 /home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.pdb
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Domain.dll
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/bin/Debug/netstandard2.0/PizzaBox.Domain.pdb
+/home/earl/Revature/project-challenges/project-challenge-p0/PizzaBox.Storing/obj/Debug/netstandard2.0/PizzaBox.Storing.csproj.CopyComplete

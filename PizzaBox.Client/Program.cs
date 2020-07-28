@@ -216,7 +216,7 @@ namespace PizzaBox.Client
             char input = ' ';
             displayPizzas();
             input = acceptInputC();
-            Pizza pizza;
+            Pizza pizza = new Pizza();
             if(input.Equals('Q') == false)
             {
                 switch(input)
@@ -240,7 +240,7 @@ namespace PizzaBox.Client
                         break;
 
                 }
-                Order.Pizzas.Add(pizza);
+                order.Pizzas.Add(pizza);
             }
             return order;
 

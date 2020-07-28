@@ -10,9 +10,10 @@ namespace PizzaBox.Domain.Models
     public int pizzaLimit = 50;
     public List<Pizza> Pizzas { get; set; }
     public DateTime DateOrdered { get; set; }
-    public void completed()
+    public Boolean completed()
     {
       done = true;
+      return done;
     }
     public void CreatePizza()
     {
@@ -38,7 +39,7 @@ namespace PizzaBox.Domain.Models
     public string toString()
     {
       string output = "";
-      output += Pizzas.Count.ToString() +", " + completed.ToString();
+      output += Pizzas.Count.ToString() +", " + done.ToString();
       return output;
     }
   }
