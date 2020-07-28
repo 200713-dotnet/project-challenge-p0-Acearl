@@ -10,18 +10,18 @@ go
 use PizzaBoxDb;
 go
 
-create schema Pizza;
-go
-drop table Pizza.Toppings;
-go
-drop table Pizza.Pizza;
-go
-drop table Pizza.[Order];
-go
-drop table Pizza.Store;
-go
-drop table Pizza.[User];
-go
+-- create schema Pizza;
+-- go
+-- drop table Pizza.Toppings;
+-- go
+-- drop table Pizza.Pizza;
+-- go
+-- drop table Pizza.[Order];
+-- go
+-- drop table Pizza.Store;
+-- go
+-- drop table Pizza.[User];
+-- go
 
 create table Pizza.[User]
 (

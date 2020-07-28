@@ -337,11 +337,15 @@ namespace PizzaBox.Client
         }
         static void checkout(Store store, Order order, User user)
         {
+            PizzaBox.Storing.Repositories.PizzaRepository pr = new PizzaBox.Storing.Repositories.PizzaRepository();
             if((order.done == true) && (order.orderPrice() <= (double)order.priceLimit) && (order.Pizzas.Count <= order.pizzaLimit))
             {
                 Console.WriteLine("Conditions met to checkout");
                 store.Orders.Add(order);
                 user.Orders.Add(order);
+                pr.CreateStore(store);
+                pr.CreateUser(user);
+                pr.CreateOrder(order, pr.FindUserId(user.name), pr.FindStoreId(store.Name));
             }
             else
             {

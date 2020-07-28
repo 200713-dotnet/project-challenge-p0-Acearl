@@ -62,6 +62,50 @@ namespace PizzaBox.Storing.Repositories
             _db.Store.Add(dbStore);
             _db.SaveChanges();
         }
+        public int FindStoreId(string targetName)
+        {
+            var storeList = ReadAllStores();
+            var storeNames = new List<string>();
+            foreach(var s in storeList)
+            {
+                storeNames.Add(s.Name);
+            }
+            return storeNames.IndexOf(targetName);
+        }
+        public int FindUserId(string targetName)
+        {
+            var userList = ReadAllUsers();
+            var userNames = new List<string>();
+            foreach(var u in userList)
+            {
+                userNames.Add(u.name);
+            }
+            return userNames.IndexOf(targetName);
+        }
+        public IEnumerable<domain.User> ReadAllUsers()
+        {
+            var userList = new List<domain.User>();
+            foreach(var item in _db.User.ToList())
+            {
+                userList.Add(new domain.User(item.Name));
+            }
+            return userList;
+        }
+        public IEnumerable<domain.Store> ReadAllStores()
+        {
+            var storeList = new List<domain.Store>();
+            foreach(var item in _db.Store.ToList())
+            {
+                storeList.Add(new domain.Store(item.Name));
+            }
+            return storeList;
+        }
+        public IEnumerable<domain.Order> ReadAllOrders()
+        {
+            var domainPizzaList = new List<domain.Order>();
+
+            return domainPizzaList;
+        }
         // public IEnumerable<domain.Pizza> ReadAll()
         // {
         //     var domainPizzaList = new List<domain.Pizza>();
