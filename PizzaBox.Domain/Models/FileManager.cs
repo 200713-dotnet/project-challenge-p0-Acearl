@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace PizzaStore.Domain.Models
+namespace PizzaBox.Domain.Models
 {
     public class FileManager
     {

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PizzaStore.Domain.Models
+namespace PizzaBox.Domain.Models
 {
   public class Pizza
   {
@@ -11,8 +11,20 @@ namespace PizzaStore.Domain.Models
     public string size { get; set; }
     public string crust { get; set; }
     public double price {get; set;}
+    public Pizza(string name, string size, string crust, double price, List<string> toppings)
+    {
+      this.name = name;
+      this.size = size;
+      this.crust = crust;
+      this.price = price;
+      this.Toppings = toppings;
+    }
 
-    public string toString()
+    public Pizza()
+    {
+    }
+
+        public string toString()
     {
       string output = "";
       output = name + ", " + size + ", " + crust + ", " + price + ", ";

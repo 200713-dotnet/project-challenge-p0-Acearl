@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
 
-namespace PizzaStore.Domain.Models
+namespace PizzaBox.Domain.Models
 {
   public class Order
   {
-    Boolean completed { get; set; }
-    private const int priceLimit = 250;
-    private const int pizzaLimit = 50;
+    public Boolean done { get; set; } = false;
+    public int priceLimit = 250;
+    public int pizzaLimit = 50;
     public List<Pizza> Pizzas { get; set; }
     public DateTime DateOrdered { get; set; }
-
+    public void completed()
+    {
+      done = true;
+    }
     public void CreatePizza()
     {
       Pizzas.Add(new Pizza());
@@ -32,9 +35,11 @@ namespace PizzaStore.Domain.Models
         Console.WriteLine(p.toString());
       }
     }
-    public void toString()
+    public string toString()
     {
-
+      string output = "";
+      output += Pizzas.Count.ToString() +", " + completed.ToString();
+      return output;
     }
   }
   
