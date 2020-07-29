@@ -18,7 +18,7 @@ namespace PizzaBox.Testing
             string size = "S";
             string crust = "Normal";
             
-            List<string> toppings = new List<string>{"topping"};
+            List<string> toppings = new List<string>{"Chez"};
             //action
             order.CreatePizza("test",size, crust,8.0,toppings);
             pr.CreateStore(store);
@@ -26,7 +26,7 @@ namespace PizzaBox.Testing
             pr.CreateOrder(order, pr.FindUserId(user.name), pr.FindStoreId(store.Name));
 
             //assert
-            var test = pr.ReadAllOrders();
+            var test = pr.ReadAllStores();
             Assert.True(test.Count > 0);
         }
     }

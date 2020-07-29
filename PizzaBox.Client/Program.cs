@@ -39,7 +39,8 @@ namespace PizzaBox.Client
             Console.WriteLine("D : Change Store");
             Console.WriteLine("E : Remove Pizza in an Order");
             Console.WriteLine("F : Modify Pizza in an Order");
-            Console.WriteLine("G : Checkout With current Order");
+            Console.WriteLine("G : View User Order History");
+            Console.WriteLine("H : Checkout With current Order");
             Console.WriteLine("Q : To exit the program");
             Console.WriteLine("");
         }
@@ -110,7 +111,7 @@ namespace PizzaBox.Client
                             currentOrder = pizzaLoop(currentOrder);
                             break;
                         case 'B':
-                            completeOrder(user, currentOrder, store);
+                            user = completeOrder(user, currentOrder, store);
                             break;
                         case 'C':
                             changeUser = true;
@@ -129,9 +130,22 @@ namespace PizzaBox.Client
                             }
                             break;
                         case 'F':
-                            user.Orders = pizzaChange(user.Orders);
+                            if(currentOrder.done == true)
+                            {
+                                Console.WriteLine("This order cannot be modified. It is completed.");
+                            }
+                            else
+                            {
+                                user.Orders = pizzaChange(user.Orders);
+                            }
                             break;
                         case 'G':
+                            foreach(var o in user.orderHistory)
+                            {
+                                Console.WriteLine(o);
+                            }
+                            break;
+                        case 'H':
                             checkout(store, currentOrder, user);
                             exit = true;
                             break;
@@ -370,14 +384,14 @@ namespace PizzaBox.Client
         static void checkout(Store store, Order order, User user)
         {
             PizzaBox.Storing.Repositories.PizzaRepository pr = new PizzaBox.Storing.Repositories.PizzaRepository();
-            if((order.orderPrice() <= (double)order.priceLimit) && (order.Pizzas.Count <= order.pizzaLimit))
+            if((order.done == true)&&(order.orderPrice() <= (double)order.priceLimit) && (order.Pizzas.Count <= order.pizzaLimit))
             {
                 Console.WriteLine("Conditions met to checkout");
                 store.Orders.Add(order);
-                //user.Orders.Add(order);
-                // pr.CreateStore(store);
-                // pr.CreateUser(user);
-                // pr.CreateOrder(order, pr.FindUserId(user.name), pr.FindStoreId(store.Name));
+                Console.WriteLine("Order Costs $ " + order.orderPrice());
+                pr.CreateStore(store);
+                pr.CreateUser(user);
+                pr.CreateOrder(order, pr.FindUserId(user.name), pr.FindStoreId(store.Name));
             }
             else
             {
@@ -398,10 +412,11 @@ namespace PizzaBox.Client
 
             
         }
-        static void completeOrder(User user, Order order, Store store)
+        static User completeOrder(User user, Order order, Store store)
         {
             order.completed();
             user.orderHistory.Add("Order at " + DateTime.Now.ToString() + " with " + order.Pizzas.Count.ToString() + " Pizzas");
+            return user;
         }
         static Order pizzaRemove(Order orders)
         {

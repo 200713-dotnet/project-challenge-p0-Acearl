@@ -17,22 +17,25 @@ namespace PizzaBox.Storing.Repositories
             dbPizza.Crust = pizza.crust;
             dbPizza.OrderId = orderId;
             _db.Pizza.Add(dbPizza);
+            _db.SaveChanges();
             System.Console.WriteLine("Pizza info");
-            //System.Console.WriteLine(dbPizza.PizzaId);
+            // System.Console.WriteLine(ReadAllOrdersIds().Last());
             foreach(var t in pizza.Toppings)
             {
-                CreateTopping(t,dbPizza.PizzaId);
+                CreateTopping(t,ReadAllOrdersIds().Last());
             }
         }
         public void CreateTopping(string passedTopping, int pizzaId)
         {
             var topping = new Toppings();
-            //topping.PizzaId = pizzaId + 1;
             topping.Name = passedTopping;
-            System.Console.WriteLine("Topping info");
-            System.Console.WriteLine(topping.PizzaId);
-            System.Console.WriteLine(topping.ToppingId);
+            topping.PizzaId = pizzaId;
+            // System.Console.WriteLine("Topping info");
+            // System.Console.WriteLine("Pizza " + topping.PizzaId);
             _db.Toppings.Add(topping);
+            _db.SaveChanges();
+            //System.Console.WriteLine(ReadAllToppingIds().Last());
+            
         }
         public void CreateOrder(domain.Order order, int userId, int storeId)
         {
@@ -45,7 +48,7 @@ namespace PizzaBox.Storing.Repositories
             
             _db.Order.Add(dbOrder);
             _db.SaveChanges();
-            System.Console.WriteLine("FRUSTRATION");
+            System.Console.WriteLine("FRUSTRATION:Order ID added");
             System.Console.WriteLine(ReadAllOrdersIds().Last());
             foreach(var p in order.Pizzas)
             {
@@ -62,10 +65,11 @@ namespace PizzaBox.Storing.Repositories
             foreach(var u in userlist)
             {
                 userNameList.Add(u.name);
+                System.Console.WriteLine(u.name);
             }
             if(userNameList.Contains(user.name))
             {
-
+                
             }
             else
             {
@@ -148,6 +152,28 @@ namespace PizzaBox.Storing.Repositories
             foreach(var item in _db.Order.ToList())
             {
                 domainPizzaList.Add(item.OrderId);
+                // System.Console.WriteLine(item.OrderId);
+            }
+            return domainPizzaList;
+        }
+        public List<int> ReadAllPizzaIds()
+        {
+            var domainPizzaList = new List<int>();
+            foreach(var item in _db.Pizza.ToList())
+            {
+                domainPizzaList.Add(item.PizzaId);
+                // System.Console.WriteLine(item.PizzaId);
+            }
+            return domainPizzaList;
+        }
+        public List<int> ReadAllToppingIds()
+        {
+            var domainPizzaList = new List<int>();
+            System.Console.WriteLine("topping ids");
+            foreach(var item in _db.Toppings.ToList())
+            {
+                domainPizzaList.Add(item.ToppingId);
+                // System.Console.WriteLine(item.ToppingId);
             }
             return domainPizzaList;
         }

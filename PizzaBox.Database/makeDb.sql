@@ -47,8 +47,6 @@ create table Pizza.[Order]
   constraint FK_UserId foreign key (UserId) REFERENCES Pizza.[User](UserId),
   constraint FK_StoreId foreign key (StoreId) references Pizza.Store(StoreId)
 );
-SET IDENTITY_INSERT Pizza.[Order] ON;
-Go
 create table Pizza.Pizza
 (
   PizzaId int not null identity(1,1),
