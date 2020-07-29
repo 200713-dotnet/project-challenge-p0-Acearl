@@ -6,7 +6,7 @@ namespace PizzaBox.Domain.Models
   {
     private const int toppingLimit = 5;
     private const int toppingMin = 2;
-    public List<string> Toppings { get; set; }
+    public List<string> Toppings { get; set; } = new List<string>();
     public string name { get; set; }
     public string size { get; set; }
     public string crust { get; set; }
@@ -24,7 +24,7 @@ namespace PizzaBox.Domain.Models
     {
     }
 
-        public string toString()
+    public string toString()
     {
       string output = "";
       output = name + ", " + size + ", " + crust + ", " + price + ", ";

@@ -5,6 +5,11 @@ namespace PizzaBox.Storing
 {
     public partial class Pizza
     {
+        public Pizza()
+        {
+            Toppings = new HashSet<Toppings>();
+        }
+
         public int PizzaId { get; set; }
         public int OrderId { get; set; }
         public string Crust { get; set; }
@@ -12,5 +17,6 @@ namespace PizzaBox.Storing
         public string Name { get; set; }
 
         public virtual Order Order { get; set; }
+        public virtual ICollection<Toppings> Toppings { get; set; }
     }
 }

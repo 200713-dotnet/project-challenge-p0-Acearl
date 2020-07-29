@@ -13,8 +13,7 @@ namespace PizzaBox.Storing
         public int OrderId { get; set; }
         public int UserId { get; set; }
         public int StoreId { get; set; }
-        public byte[] Done { get; set; }
-        public decimal Cost { get; set; }
+        public bool Done { get; set; }
         public DateTime DateOrdered { get; set; }
 
         public virtual Store Store { get; set; }

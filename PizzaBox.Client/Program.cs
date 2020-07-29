@@ -20,34 +20,37 @@ namespace PizzaBox.Client
         }
         static void welcomeBanner()
         {
-            Console.WriteLine("Welcome to Pizza Box");
+            Console.WriteLine("------------------------------------------------------------");
+            Console.WriteLine("Welcome to the Pizza Box");
             Console.WriteLine("Where we know you are smart enough to use a command line UI");
             Console.WriteLine("");
             Console.WriteLine("Here at Pizza Box we make pizzas you consume.");
             Console.WriteLine("Follow prompt instructions to complete an order");
+            Console.WriteLine("------------------------------------------------------------");
             Console.WriteLine("");
         }
         static void displayMainMenu()
         {
-            Console.WriteLine("Enter a number option then press enter to continue");
+            Console.WriteLine("Enter a letter option then press enter to continue");
             Console.WriteLine("Would you like to...");
             Console.WriteLine("A : Add a Pizza");
             Console.WriteLine("B : Complete your current order");
             Console.WriteLine("C : Change User");
             Console.WriteLine("D : Change Store");
-            Console.WriteLine("E : Modify Pizza in an Order");
-            Console.WriteLine("F : Checkout With all Orders");
+            Console.WriteLine("E : Remove Pizza in an Order");
+            Console.WriteLine("F : Modify Pizza in an Order");
+            Console.WriteLine("G : Checkout With current Order");
             Console.WriteLine("Q : To exit the program");
             Console.WriteLine("");
         }
         static void displayPizzas()
         {
-            Console.Write("What type of pizza would you like to add to your order?");
-            Console.Write("A: Cheese Pizza | Small,Normal Crust,American&Mozza Cheese, $8");
-            Console.Write("B: Pepperoni Pizza | Medium,burned Crust,American Cheese/Pepperoni, $9");
-            Console.Write("C: Niche Pizza (Hawaiian Pizza) | Large,stuffed Crust,American Cheese/Pineapple, $10");
-            Console.Write("D: Custom Pizza (Advanced users only)| S/M/L,?,American&Mozza Cheese(by default), $25");
-            Console.Write("Q: Exit adding pizza");
+            Console.WriteLine("What type of pizza would you like to add to your order?");
+            Console.WriteLine("A: Cheese Pizza | Small,Normal Crust,American&Mozza Cheese, $8");
+            Console.WriteLine("B: Pepperoni Pizza | Medium,burned Crust,American Cheese/Pepperoni, $9");
+            Console.WriteLine("C: Niche Pizza (Hawaiian Pizza) | Large,stuffed Crust,American Cheese/Pineapple, $10");
+            Console.WriteLine("D: Custom Pizza (Advanced users only)| S/M/L,?,American&Mozza Cheese(by default), $25");
+            Console.WriteLine("Q: Exit adding pizza");
         }
         static User userLoop()
         {
@@ -65,16 +68,20 @@ namespace PizzaBox.Client
             List<Store> stores = new List<Store>{new Store("North Store"), new Store("South Store")};
             Store store = null;
             char input;
-            List<Order> orders = new List<Order>();
+            //List<Order> orders = new List<Order>();
             Order currentOrder = null;
             while(exit == false)
             {
-                if(user.Orders != null)
+                if(currentOrder != null)
                 {
+                    Console.WriteLine("");
                     Console.WriteLine("Users orders are");
+                    Console.WriteLine("#pizzas, completed");
+                    Console.WriteLine("");
+
                     foreach(var o in user.Orders)
                     {
-                        user.Orders.ToString();
+                        Console.WriteLine(o.toString());
                     }
                     
                 }
@@ -97,8 +104,8 @@ namespace PizzaBox.Client
                         case 'A':
                             if(currentOrder is null)
                             {
-                                orders.Add(store.CreateOrder());
-                                currentOrder = orders[orders.Count-1];
+                                user.Orders.Add(store.CreateOrder());
+                                currentOrder = user.Orders[user.Orders.Count-1];
                             }
                             currentOrder = pizzaLoop(currentOrder);
                             break;
@@ -112,9 +119,19 @@ namespace PizzaBox.Client
                             changeStore = true;
                             break;
                         case 'E':
-                            orders = pizzaChange(orders);
+                            if(currentOrder.done == true)
+                            {
+                                Console.WriteLine("This order cannot be modified. It is completed.");
+                            }
+                            else
+                            {
+                                currentOrder = pizzaRemove(currentOrder);
+                            }
                             break;
                         case 'F':
+                            user.Orders = pizzaChange(user.Orders);
+                            break;
+                        case 'G':
                             checkout(store, currentOrder, user);
                             break;
                         case 'Q':
@@ -169,13 +186,13 @@ namespace PizzaBox.Client
             Console.Write("Enter option here ->");
             try
             {
-                inputTemp = (Console.ReadLine().ToUpper());
+                inputTemp = (Console.ReadLine());
                 bool isNumeric = int.TryParse(inputTemp, out _);
                 while(inputTemp.Equals(" ") || (isNumeric == true))
                 {
                     Console.WriteLine("Please input non numerics or special characters");
                     Console.Write("Enter option here ->");
-                    inputTemp = (Console.ReadLine().ToUpper());
+                    inputTemp = (Console.ReadLine());
                     isNumeric = int.TryParse(inputTemp, out _);
                 }
                 Console.WriteLine(inputTemp);
@@ -305,15 +322,21 @@ namespace PizzaBox.Client
             pizzaCounter = 0;
             Console.WriteLine("What Order to edit?");
             var orderInput = acceptInputNumeric();
-            foreach(var p in orders[orderInput].Pizzas)
+            if(orders[orderInput].done == true)
             {
-                Console.WriteLine(pizzaCounter+", "+p.toString());
-                pizzaCounter++;
+                Console.WriteLine("This order cannot be modified. It is completed.");
             }
-            Console.WriteLine("What Pizza to edit?");
-            var pizzaInput = acceptInputNumeric();
-            orders[orderInput].Pizzas[pizzaInput] = pizzaEdit(orders[orderInput].Pizzas[pizzaInput]);
-            
+            else
+            {
+                foreach(var p in orders[orderInput].Pizzas)
+                {
+                    Console.WriteLine(pizzaCounter+", "+p.toString());
+                    pizzaCounter++;
+                }
+                Console.WriteLine("What Pizza to edit?");
+                var pizzaInput = acceptInputNumeric();
+                orders[orderInput].Pizzas[pizzaInput] = pizzaEdit(orders[orderInput].Pizzas[pizzaInput]);
+            }
             return orders;
         }
         static Pizza pizzaEdit(Pizza pizza)
@@ -330,6 +353,7 @@ namespace PizzaBox.Client
             foreach(var s in stores)
             {
                 Console.WriteLine(counter + " :" + s.Name);
+                counter++;
             }
             Console.WriteLine("Select a store's index");
             var input = acceptInputNumeric();
@@ -338,7 +362,7 @@ namespace PizzaBox.Client
         static void checkout(Store store, Order order, User user)
         {
             PizzaBox.Storing.Repositories.PizzaRepository pr = new PizzaBox.Storing.Repositories.PizzaRepository();
-            if((order.done == true) && (order.orderPrice() <= (double)order.priceLimit) && (order.Pizzas.Count <= order.pizzaLimit))
+            if((order.orderPrice() <= (double)order.priceLimit) && (order.Pizzas.Count <= order.pizzaLimit))
             {
                 Console.WriteLine("Conditions met to checkout");
                 store.Orders.Add(order);
@@ -370,6 +394,20 @@ namespace PizzaBox.Client
         {
             order.completed();
             user.orderHistory.Add("Order at " + DateTime.Now.ToString() + " with " + order.Pizzas.Count.ToString() + " Pizzas");
+        }
+        static Order pizzaRemove(Order orders)
+        {
+            Console.WriteLine("Which pizza to remove?");
+            Console.WriteLine("Index #, Pizza info");
+            int oInt = 0;
+            foreach(var p in orders.Pizzas)
+            {
+                Console.WriteLine(oInt + ", " + p.toString());
+                oInt++;
+            }
+            int input = acceptInputNumeric();
+            orders.Pizzas.RemoveAt(input);
+            return orders;
         }
     }
 }

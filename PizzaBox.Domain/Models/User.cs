@@ -5,8 +5,8 @@ namespace PizzaBox.Domain.Models
   public class User
   {
     
-    public List<string> orderHistory { get; set; }
-    public List<Order> Orders { get; set; }
+    public List<string> orderHistory { get; set; } = new List<string>();
+    public List<Order> Orders { get; set; } = new List<Order>();
     public string name { get; set; }
     public User()
     {

@@ -36,16 +36,7 @@ namespace PizzaBox.Storing
             {
                 entity.ToTable("Order", "Pizza");
 
-                entity.Property(e => e.Cost)
-                    .HasColumnName("cost")
-                    .HasColumnType("money");
-
                 entity.Property(e => e.DateOrdered).HasColumnName("dateOrdered");
-
-                entity.Property(e => e.Done)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsFixedLength();
 
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.Order)
@@ -95,7 +86,8 @@ namespace PizzaBox.Storing
 
             modelBuilder.Entity<Toppings>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ToppingId)
+                    .HasName("PK_ToppingId");
 
                 entity.ToTable("Toppings", "Pizza");
 
@@ -104,7 +96,7 @@ namespace PizzaBox.Storing
                     .HasMaxLength(200);
 
                 entity.HasOne(d => d.Pizza)
-                    .WithMany()
+                    .WithMany(p => p.Toppings)
                     .HasForeignKey(d => d.PizzaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_PizzaId");

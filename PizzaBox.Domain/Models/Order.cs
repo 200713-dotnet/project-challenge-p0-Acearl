@@ -8,7 +8,7 @@ namespace PizzaBox.Domain.Models
     public Boolean done { get; set; } = false;
     public int priceLimit = 250;
     public int pizzaLimit = 50;
-    public List<Pizza> Pizzas { get; set; }
+    public List<Pizza> Pizzas { get; set; } = new List<Pizza>();
     public DateTime DateOrdered { get; set; }
     public Boolean completed()
     {
@@ -18,6 +18,10 @@ namespace PizzaBox.Domain.Models
     public void CreatePizza()
     {
       Pizzas.Add(new Pizza());
+    }
+    public void CreatePizza(string name,string size, string crust, double price, List<string> toppings)
+    {
+      this.Pizzas.Add(new Pizza(name,size,crust,price,toppings));
     }
     public double orderPrice()
     {

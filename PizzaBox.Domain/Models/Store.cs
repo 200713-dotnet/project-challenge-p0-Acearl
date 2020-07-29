@@ -4,7 +4,7 @@ namespace PizzaBox.Domain.Models
 {
   public class Store
   {
-    public List<Order> Orders { get; set; }
+    public List<Order> Orders { get; set; } = new List<Order>();
     public string Name { get; set; }
     public Store(string name)
     {
