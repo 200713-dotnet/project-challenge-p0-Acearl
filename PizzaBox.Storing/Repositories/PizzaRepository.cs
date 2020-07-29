@@ -46,10 +46,10 @@ namespace PizzaBox.Storing.Repositories
             _db.Order.Add(dbOrder);
             _db.SaveChanges();
             System.Console.WriteLine("FRUSTRATION");
-            System.Console.WriteLine(ReadAllOrders().Last().);
+            System.Console.WriteLine(ReadAllOrdersIds().Last());
             foreach(var p in order.Pizzas)
             {
-                CreatePizza(p, (_db.Order.ToList().ElementAt(-1).UserId));
+                CreatePizza(p, ReadAllOrdersIds().Last());
             }
             _db.SaveChanges();
             
@@ -133,12 +133,21 @@ namespace PizzaBox.Storing.Repositories
             }
             return storeList;
         }
-        public IEnumerable<domain.Order> ReadAllOrders()
+        public List<List<string>> ReadAllOrders()
         {
-            var domainPizzaList = new IEnumerable<List>();
-            foreach(var item in _db.Store.ToList())
+            var domainPizzaList = new List<List<string>>();
+            foreach(var item in _db.Order.ToList())
             {
-                storeList.Add(new domain.Store(item.Name));
+                //domainPizzaList.Add(new List<string>() = {item.OrderId});
+            }
+            return domainPizzaList;
+        }
+        public List<int> ReadAllOrdersIds()
+        {
+            var domainPizzaList = new List<int>();
+            foreach(var item in _db.Order.ToList())
+            {
+                domainPizzaList.Add(item.OrderId);
             }
             return domainPizzaList;
         }

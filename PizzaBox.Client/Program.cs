@@ -367,9 +367,9 @@ namespace PizzaBox.Client
                 Console.WriteLine("Conditions met to checkout");
                 store.Orders.Add(order);
                 user.Orders.Add(order);
-                pr.CreateStore(store);
-                pr.CreateUser(user);
-                pr.CreateOrder(order, pr.FindUserId(user.name), pr.FindStoreId(store.Name));
+                // pr.CreateStore(store);
+                // pr.CreateUser(user);
+                // pr.CreateOrder(order, pr.FindUserId(user.name), pr.FindStoreId(store.Name));
             }
             else
             {
