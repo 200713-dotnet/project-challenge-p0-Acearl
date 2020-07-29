@@ -296,7 +296,7 @@ namespace PizzaBox.Client
                         break;
                     case 'R':
                         Console.WriteLine("Remove topping of what index");
-                        topcounter = 0
+                        topcounter = 0;
                         foreach(var t in toppings)
                         {
                             Console.WriteLine(topcounter + ", "+toppingIndex.ToString() + ", "+ t);
