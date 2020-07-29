@@ -20,7 +20,7 @@ namespace PizzaBox.Testing
             
             List<string> toppings = new List<string>{"Chez"};
             //action
-            order.CreatePizza("test",size, crust,8.0,toppings);
+            order.CreatePizza("YEET",size, crust,8.0,toppings);
             pr.CreateStore(store);
             pr.CreateUser(user);
             pr.CreateOrder(order, pr.FindUserId(user.name), pr.FindStoreId(store.Name));
