@@ -276,9 +276,15 @@ namespace PizzaBox.Client
             List<string> toppings = new List<string>{"American Cheese","Mozzarella Cheese"};
             char input;
             int toppingIndex = 0;
+            var topcounter = 0;
             while(toppingsOver == false || toppings.Count >=5)
             {
-                Console.WriteLine(toppings.ToArray());
+                topcounter = 0;
+                foreach(var t in toppings)
+                {
+                    Console.WriteLine(topcounter + ", "+toppingIndex.ToString() + ", "+ t);
+                    topcounter++;
+                }
                 Console.WriteLine("Any more toppings? (A)dd,(R)emove,(D)one, 2 is the least, 5 is the limit");
                 input = acceptInputC();
                 toppingIndex = 0;
@@ -290,10 +296,11 @@ namespace PizzaBox.Client
                         break;
                     case 'R':
                         Console.WriteLine("Remove topping of what index");
-                        
+                        topcounter = 0
                         foreach(var t in toppings)
                         {
-                            Console.WriteLine(toppingIndex.ToString() + ", "+ t);
+                            Console.WriteLine(topcounter + ", "+toppingIndex.ToString() + ", "+ t);
+                            topcounter++;
                         }
                         toppings.RemoveAt(acceptInputNumeric());
                         break;
